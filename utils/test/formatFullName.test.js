@@ -11,7 +11,12 @@ describe('FormatFullname' , () => {
         expect(formatFullname(function() {})).to.equal('Error');
     });
 
-    it('should return good output for correct "fullname" arg that consist of two words', () => {
+    it('should return an error if "fullname" has less or more than two words', () => {
+        expect(formatFullname('Lorem')).to.equal('Error');
+        expect(formatFullname('Lorem Ipsum Doloret')).to.equal('Error');        
+    });
+
+    it('should return correct output for "fullname" arg that consists of two words', () => {
         expect(formatFullname('Lorem Ipsum')).to.equal('Lorem Ipsum');
         expect(formatFullname('LOREM IPSUM')).to.equal('Lorem Ipsum');
         expect(formatFullname('lorem ipsum')).to.equal('Lorem Ipsum');
